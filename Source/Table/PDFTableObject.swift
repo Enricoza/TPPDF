@@ -173,7 +173,7 @@ class PDFTableObject: PDFObject {
                 style: styles[colIdx],
                 frames: (
                     cell: CGRect(
-                        origin: newOrigin + CGPoint(x:table.horizontalPadding,y:table.verticalPadding),
+                        origin: newOrigin + table.margin,
                         size: CGSize(
                             width: columnWidth - 2 * table.margin,
                             height: 0
