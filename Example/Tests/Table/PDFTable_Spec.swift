@@ -32,7 +32,11 @@ class PDFTable_Spec: QuickSpec {
                 }
 
                 it("has a default padding") {
-                    expect(table.padding) == 0
+                    expect(table.horizontalPadding) == 0
+                }
+                
+                it("has a default padding") {
+                    expect(table.verticalPadding) == 0
                 }
 
                 it("has a default margin") {

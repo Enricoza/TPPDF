@@ -51,7 +51,13 @@ class PDFTable_Equatable_Spec: QuickSpec {
 
                 it("is not equal with different padding") {
                     let otherTable = PDFTable()
-                    otherTable.padding = 100
+                    otherTable.horizontalPadding = 100
+                    expect(table) != otherTable
+                }
+                
+                it("is not equal with different padding") {
+                    let otherTable = PDFTable()
+                    otherTable.verticalPadding = 100
                     expect(table) != otherTable
                 }
 

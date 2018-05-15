@@ -173,16 +173,16 @@ class PDFTableObject: PDFObject {
                 style: styles[colIdx],
                 frames: (
                     cell: CGRect(
-                        origin: newOrigin + table.margin,
+                        origin: newOrigin + CGPoint(x:table.horizontalPadding,y:table.verticalPadding),
                         size: CGSize(
                             width: columnWidth - 2 * table.margin,
                             height: 0
                         )
                     ),
                     content: CGRect(
-                        origin: newOrigin + table.margin + table.padding,
+                        origin: newOrigin + table.margin + CGPoint(x:table.horizontalPadding,y:table.verticalPadding),
                         size: CGSize(
-                            width: columnWidth - 2 * (table.margin + table.padding),
+                            width: columnWidth - 2 * (table.margin + table.horizontalPadding),
                             height: 0
                         )
                     )
@@ -220,7 +220,7 @@ class PDFTableObject: PDFObject {
                 }
 
                 frame.frames.content.size = result.size
-                frame.frames.cell.size.height = result.height + 2 * table.padding
+                frame.frames.cell.size.height = result.height + 2 * table.verticalPadding
             }
 
             frames.append(frame)
@@ -243,9 +243,9 @@ class PDFTableObject: PDFObject {
                 if alignment.isLeft {
                     return frame.frames.content.minX
                 } else if alignment.isRight {
-                    return frame.frames.content.minX + frame.frames.cell.width - 2 * table.padding - frame.frames.content.width
+                    return frame.frames.content.minX + frame.frames.cell.width - 2 * table.horizontalPadding - frame.frames.content.width
                 } else {
-                    return frame.frames.content.minX + (frame.frames.cell.width - 2 * table.padding - frame.frames.content.width) / 2
+                    return frame.frames.content.minX + (frame.frames.cell.width - 2 * table.horizontalPadding - frame.frames.content.width) / 2
                 }
             }()
 
@@ -253,9 +253,9 @@ class PDFTableObject: PDFObject {
                 if alignment.isTop {
                     return frame.frames.content.minY
                 } else if alignment.isBottom {
-                    return frame.frames.content.minY + maxCellHeight - 2 * table.padding - frame.frames.content.height
+                    return frame.frames.content.minY + maxCellHeight - 2 * table.verticalPadding - frame.frames.content.height
                 } else {
-                    return frame.frames.content.minY + (maxCellHeight - 2 * table.padding - frame.frames.content.height) / 2
+                    return frame.frames.content.minY + (maxCellHeight - 2 * table.verticalPadding - frame.frames.content.height) / 2
                 }
             }()
 

@@ -24,10 +24,14 @@ extension PDFTable: Equatable {
             return false
         }
 
-        if lhs.padding != rhs.padding {
+        if lhs.horizontalPadding != rhs.horizontalPadding {
             return false
         }
 
+        if lhs.verticalPadding != rhs.verticalPadding {
+            return false
+        }
+        
         if lhs.margin != rhs.margin {
             return false
         }

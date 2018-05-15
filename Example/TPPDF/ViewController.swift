@@ -288,7 +288,8 @@ class ViewController: UIViewController {
 
         // Set table padding and margin
 
-        table.padding = 5.0
+        table.horizontalPadding = 5.0
+        table.verticalPadding = 5.0
         table.margin = 10.0
 
         // In case of a linebreak during rendering we want to have table headers on each page.

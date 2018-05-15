@@ -29,9 +29,14 @@ public class PDFTable: PDFJSONSerializable {
     public var widths: [CGFloat] = []
 
     /**
-     Padding is the distance between the cell content and its borders.
+     Horizontal padding is the distance between the cell content and its borders left and right.
      */
-    public var padding: CGFloat = 0
+    public var horizontalPadding: CGFloat = 0
+    
+    /**
+     Vertical padding is the distance between the cell content and its borders top and bottom.
+     */
+    public var verticalPadding: CGFloat = 0
 
     /**
      Margin is the distance between the cell borders and other cells
@@ -91,7 +96,8 @@ public class PDFTable: PDFJSONSerializable {
         table.style = self.style
         table.cells = self.cells
         table.widths = self.widths
-        table.padding = self.padding
+        table.horizontalPadding = self.horizontalPadding
+        table.verticalPadding = self.verticalPadding
         table.margin = self.margin
         table.showHeadersOnEveryPage = self.showHeadersOnEveryPage
         return table
